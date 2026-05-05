@@ -4,11 +4,11 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 <!---LeetCode Topics Start-->
 # LeetCode Topics
 ## Array
-|  |
-| ------- |
+| Problem Name | Difficulty |
+| ------- | ------- |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/ParkHongJ/LeetCode/tree/master/0080-remove-duplicates-from-sorted-array-ii) |
 ## Two Pointers
-|  |
-| ------- |
+| Problem Name | Difficulty |
+| ------- | ------- |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/ParkHongJ/LeetCode/tree/master/0080-remove-duplicates-from-sorted-array-ii) |
 <!---LeetCode Topics End-->
