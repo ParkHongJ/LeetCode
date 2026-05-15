@@ -2,36 +2,34 @@ class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
         vector<int> answer;
+        answer.reserve(nums1.size());
 
         unordered_map<int,int> m;
-        for (int i = 0; i < nums2.size(); ++i)
+
+        stack<int> mono;
+        mono.push(nums2[0]);
+        for (int i = 1; i < nums2.size(); ++i)
         {
-            m.insert(make_pair(nums2[i], i));
+            while (!mono.empty() && mono.top() < nums2[i])
+            {
+                m[mono.top()] = nums2[i];
+                mono.pop();
+            }
+            mono.push(nums2[i]);
         }
 
         for (int i = 0; i < nums1.size(); ++i)
         {
-            int num2Idx = m[nums1[i]];
-
-            if (num2Idx + 1 >= nums2.size())
-            { 
-                answer.push_back(-1);
-                continue;
-            }
-            for (int j = num2Idx + 1; j < nums2.size(); ++j)
+            if (m.find(nums1[i]) != m.end())
             {
-                if (nums1[i] < nums2[j])
-                {
-                    answer.push_back(nums2[j]);
-                    break;
-                }
-                if (j + 1 >= nums2.size())
-                {
-                    answer.push_back(-1);
-                    break;
-                }
+                answer.push_back(m[nums1[i]]);
+            }
+            else
+            {
+                answer.push_back(-1);
             }
         }
+
         return answer;
     }
 };
