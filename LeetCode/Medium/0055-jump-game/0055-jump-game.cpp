@@ -1,22 +1,19 @@
 class Solution {
 public:
     bool canJump(vector<int>& nums) {
-        bool visit[100000] = { false };
+        
+        //dp[i] i번째 자리에서 goal에 도착 가능한가
+        bool dp[100005] = { false };
 
-        int last = nums.size() - 1;
-        visit[last] = true;
-        
-        int goal = last;
-        
-        for (int i = last; i >= 0; --i)
+        int goal = nums.size() - 1;
+        for (int i = nums.size() - 1; i >= 0; --i)
         {
             if (i + nums[i] >= goal)
             {
-                visit[i] = true;
+                dp[i] = true;
                 goal = i;
             }
-        }   
-
-        return visit[0];
+        }
+        return dp[0];
     }
 };
